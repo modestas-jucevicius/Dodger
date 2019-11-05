@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour
         for (int i=0; i < Spawners.Length; i++)
         {
             _spawnScripts[i] = Spawners[i].GetComponent<SpawnScript>();
-            Debug.Log(_spawnScripts[i]);
         }
     }
 
