@@ -32,7 +32,6 @@ public class WalkThenRunScript : MonoBehaviour
             _rigidbody.MovePosition(_rigidbody.position + Direction * RunSpeed * Time.fixedDeltaTime);
         } else
         {
-            Debug.Log(transform.rotation.eulerAngles);
             _rigidbody.MovePosition(_rigidbody.position + Direction * Speed * Time.fixedDeltaTime);
         }
     }
