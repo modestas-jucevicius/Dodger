@@ -8,7 +8,7 @@ public class DestroyOnTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            Destroy(other.gameObject);
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }
