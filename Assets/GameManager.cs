@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject gameOverUI;
+
+    public float restartDelay = 1f;
+
     public void EndGame()
     {
         Debug.Log("GAME OVER");
-        Restart();
+        gameOverUI.SetActive(true);
+        Invoke("Restart", restartDelay);
     }
 
     void Restart()

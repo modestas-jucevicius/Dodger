@@ -16,7 +16,7 @@ public class AudioScript : MonoBehaviour
         MusicSource.Play();
     }
 
-    void OnGUI()
+    public void OnGUI()
     {
         if (GUI.Button(new Rect(5, 5, 100, 50), "Mute music"))
         {
