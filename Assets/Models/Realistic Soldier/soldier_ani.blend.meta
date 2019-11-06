@@ -15,7 +15,12 @@ ModelImporter:
   - first:
       74: -1610863427237328480
     second: Walking
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3mat__soldier_DM_1024_png
+    second: {fileID: 2100000, guid: 6ed1e7e302fa09c47afdbcdcb9531345, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
