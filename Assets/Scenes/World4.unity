@@ -1024,7 +1024,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.m_Mesh
       value: 
-      objectReference: {fileID: -5495902117074765545, guid: a0528971c0c027840a38c04fc6ef7794,
+      objectReference: {fileID: -5495902117074765545, guid: dda4477a64728244ea941264683331e2,
         type: 3}
     - target: {fileID: 198279101275435388, guid: 9e03786a9517b604d8e930182607a128,
         type: 3}
@@ -1483,6 +1483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288333330255587387, guid: 90a08e97ccd7de248b981e250fdfa29c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90a08e97ccd7de248b981e250fdfa29c, type: 3}
