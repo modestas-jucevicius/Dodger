@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public GameObject[] Spawners;
     public float SpawnTime;
     public bool RandomizeSpawners;
+    public GameObject gameOverUI;
     private SpawnScript[] _spawnScripts;
     private float _lastSpawn = 0;
     private int _lastSpawner = 0;
+    private bool _gameOver = false;
     void Start()
     {
         _spawnScripts = new SpawnScript[Spawners.Length];
@@ -21,7 +24,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - _lastSpawn >= SpawnTime)
+        if (!_gameOver && Time.time - _lastSpawn >= SpawnTime)
         {
             _lastSpawn = Time.time;
             if (RandomizeSpawners)
@@ -33,5 +36,16 @@ public class GameController : MonoBehaviour
                 _lastSpawner++;
             }
         }
+    }
+
+    public void GameOver()
+    {
+        _gameOver = true;
+        gameOverUI.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

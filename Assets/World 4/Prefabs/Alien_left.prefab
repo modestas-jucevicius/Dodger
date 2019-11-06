@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 322908788883828105}
   - component: {fileID: 322908788883828104}
   - component: {fileID: 322908788883828119}
-  - component: {fileID: 4722277687576936356}
   m_Layer: 0
   m_Name: Alien_left
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,18 +81,6 @@ MonoBehaviour:
   timeIntervalToRun:
     start: 3
     end: 7
---- !u!114 &4722277687576936356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322908788883828107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e46ced15932cf34789eb2f392b45205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &322908788556647256
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,35 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioScript : MonoBehaviour
 {
-    public AudioClip MusicClip;
+    private AudioSource _musicSource;
+    private bool paused; 
 
-    public AudioSource MusicSource;
-
-    private bool paused = false;
-
-    void Start()
+    public void Start()
     {
-        MusicSource.clip = MusicClip;
-        MusicSource.Play();
+        _musicSource = GetComponent<AudioSource>();
+        paused = Convert.ToBoolean(PlayerPrefs.GetInt("Mute", 0));
+        if (paused)
+        {
+            _musicSource.Pause();
+        }
+
     }
 
-    public void OnGUI()
+    public void Pause()
     {
-        if (GUI.Button(new Rect(5, 5, 100, 50), "Mute music"))
+        if (paused)
         {
-            if (paused)
-            {
-                MusicSource.UnPause();
-                paused = false;
-            }
-            else
-            {
-                MusicSource.Pause();
-                paused = true;
-            }
+            _musicSource.UnPause();
+            paused = false;
+            PlayerPrefs.SetInt("Mute", 0);
+        }
+        else
+        {
+            _musicSource.Pause();
+            paused = true;
+            PlayerPrefs.SetInt("Mute", 1);
         }
     }
 }
