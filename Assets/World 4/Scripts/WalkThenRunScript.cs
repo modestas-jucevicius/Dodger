@@ -6,8 +6,8 @@ public class WalkThenRunScript : MonoBehaviour
 {
     public float Speed;
     public float RunSpeed;
-    public Vector3 Direction;
     public TimeInterval timeIntervalToRun;
+    private Vector3 _direction;
     private GameObject Player;
     private Rigidbody _rigidbody;
     private bool _run = false;
@@ -24,8 +24,8 @@ public class WalkThenRunScript : MonoBehaviour
         if (_run == false && Time.time > _timeAfterToRun)
         {
             _run = true;
-            Direction = Player.transform.position - transform.position;
-            Direction = Direction / Direction.magnitude;
+            _direction = Player.transform.position - transform.position;
+            _direction = _direction / _direction.magnitude;
             transform.LookAt(Player.transform);
         }
     }
@@ -34,10 +34,10 @@ public class WalkThenRunScript : MonoBehaviour
     {  
         if (_run)
         {
-            _rigidbody.MovePosition(_rigidbody.position + Direction * RunSpeed * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(_rigidbody.position + _direction * RunSpeed * Time.fixedDeltaTime);
         } else
         {
-            _rigidbody.MovePosition(_rigidbody.position + Direction * Speed * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(_rigidbody.position + _direction * Speed * Time.fixedDeltaTime);
         }
     }
 
@@ -46,6 +46,11 @@ public class WalkThenRunScript : MonoBehaviour
     {
         public float start;
         public float end;
+    }
+
+    public void setDirection (Vector3 direction)
+    {
+        _direction = direction;
     }
 }
 
