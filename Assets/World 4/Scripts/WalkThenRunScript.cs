@@ -26,6 +26,7 @@ public class WalkThenRunScript : MonoBehaviour
             _run = true;
             Direction = Player.transform.position - transform.position;
             Direction = Direction / Direction.magnitude;
+            transform.LookAt(Player.transform);
         }
     }
 
