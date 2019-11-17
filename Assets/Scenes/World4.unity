@@ -340,8 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89cc0243a2eb70478d00eb9b175fa4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7055074090831139412, guid: abfd0425ba8ce7146a49fa8e83868bee, type: 3}
+  Rotation: 180
+  Direction: {x: 0, y: 0, z: -1}
 --- !u!65 &639253502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -476,8 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89cc0243a2eb70478d00eb9b175fa4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 5738969081682058093, guid: 6e2ea261aee67e84a851467d443f3287, type: 3}
+  Rotation: 0
+  Direction: {x: 0, y: 0, z: 1}
 --- !u!65 &1097979592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -535,8 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89cc0243a2eb70478d00eb9b175fa4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 737446196131357714, guid: 6566fb3fd73094145b4379eb304dee42, type: 3}
+  Rotation: 90
+  Direction: {x: 1, y: 0, z: 0}
 --- !u!65 &1256617565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -884,8 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89cc0243a2eb70478d00eb9b175fa4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 322908788883828107, guid: 9ad2a1ecb3fe24241a0f92d9dc157a7b, type: 3}
+  Rotation: -90
+  Direction: {x: -1, y: 0, z: 0}
 --- !u!65 &1814496347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1322,9 +1322,30 @@ MonoBehaviour:
   - {fileID: 639253499}
   - {fileID: 1814496344}
   - {fileID: 1256617563}
-  SpawnTime: 2.5
-  RandomizeSpawners: 1
   gameOverUI: {fileID: 595719355}
+  Rounds:
+  - SpawnTime: 5
+    Enemies:
+    - SpawnFrom: 0
+      SpawnTo: 101
+      EnemyObject: {fileID: 5738969081682058093, guid: 6e2ea261aee67e84a851467d443f3287,
+        type: 3}
+    RoundDuration: 30
+  - SpawnTime: 4
+    Enemies:
+    - SpawnFrom: 0
+      SpawnTo: 101
+      EnemyObject: {fileID: 5738969081682058093, guid: 6e2ea261aee67e84a851467d443f3287,
+        type: 3}
+    RoundDuration: 30
+  - SpawnTime: 3
+    Enemies:
+    - SpawnFrom: 0
+      SpawnTo: 101
+      EnemyObject: {fileID: 5738969081682058093, guid: 6e2ea261aee67e84a851467d443f3287,
+        type: 3}
+    RoundDuration: 30
+  TimeBetweenRounds: 10
 --- !u!4 &1954903345
 Transform:
   m_ObjectHideFlags: 0
