@@ -49,6 +49,13 @@ public class GameController : MonoBehaviour
                 _spawnScripts[Random.Range(0, _spawnScripts.Length - 1)].Spawn(Rounds[_currentRound].GetSpawnEnemy());
             }
         }
+        else if (_gameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
     }
 
     public void GameOver()
@@ -60,6 +67,11 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     [System.Serializable]
