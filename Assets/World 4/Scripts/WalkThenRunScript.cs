@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkThenRunScript : MonoBehaviour
+public class WalkThenRunScript : MonoBehaviour, IEnemy
 {
     public float Speed;
     public float RunSpeed;
@@ -48,7 +48,7 @@ public class WalkThenRunScript : MonoBehaviour
         public float end;
     }
 
-    public void setDirection (Vector3 direction)
+    public void SetDirection (Vector3 direction)
     {
         _direction = direction;
     }
