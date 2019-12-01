@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 494d2f4c58d3bba43a07097075252143, type: 3}
-  m_Name: New Speed Up Ability
+  m_Name: SpeedBoost
   m_EditorClassIdentifier: 
-  name: New ability
-  sprite: {fileID: 0}
-  coolDown: 1
+  sprite: {fileID: 21300000, guid: 74634b400ecb6fe4281e7f3ce477bda6, type: 3}
+  timer: 5
   movementSpeed: 50
+  defaultSpeed: 30

@@ -6,6 +6,7 @@ public class PlayerCollision : MonoBehaviour
 {
     public GameObject GameController;
     private GameController _gameControllerScript;
+    public bool shieldActive = false;
 
     public void Start()
     {
@@ -13,7 +14,7 @@ public class PlayerCollision : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && !shieldActive)
         {
             _gameControllerScript.GameOver();
             Destroy(gameObject);
