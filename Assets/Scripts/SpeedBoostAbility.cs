@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "Abilities/SpeedUpAbility")]
-public class SpeedUpAbility : AbilityScript
+[CreateAssetMenu (menuName = "Abilities/SpeedBoostAbility")]
+public class SpeedBoostAbility : AbilityScript
 {
     public float movementSpeed, defaultSpeed;
     private PlayerMovementControlScript player; 
