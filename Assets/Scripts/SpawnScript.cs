@@ -21,11 +21,11 @@ public class SpawnScript : MonoBehaviour
 
     public void Spawn(GameObject enemy)
     {
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(_leftSide, _rightSide), 0, Random.Range(_bottomSide, _topSide)), Quaternion.Euler(new Vector3 (0, Rotation, 0)));
-        WalkThenRunScript enemyScript = newEnemy.GetComponent<WalkThenRunScript>();
+        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(_leftSide, _rightSide), enemy.transform.position.y, Random.Range(_bottomSide, _topSide)), Quaternion.Euler(new Vector3(0, Rotation, 0)));
+        IEnemy enemyScript = newEnemy.GetComponent<IEnemy>() as IEnemy;
         if (enemyScript != null)
         {
-            enemyScript.setDirection(Direction);
+            enemyScript.SetDirection(Direction);
         }
     }
 }

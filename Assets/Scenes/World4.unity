@@ -1338,11 +1338,11 @@ MonoBehaviour:
       EnemyObject: {fileID: 5738969081682058093, guid: 6e2ea261aee67e84a851467d443f3287,
         type: 3}
     RoundDuration: 30
-  - SpawnTime: 3
+  - SpawnTime: 5
     Enemies:
     - SpawnFrom: 0
       SpawnTo: 101
-      EnemyObject: {fileID: 5738969081682058093, guid: 6e2ea261aee67e84a851467d443f3287,
+      EnemyObject: {fileID: 5049001853686328573, guid: 2cd238c209cb3624b84a45567e687a03,
         type: 3}
     RoundDuration: 30
   TimeBetweenRounds: 10
