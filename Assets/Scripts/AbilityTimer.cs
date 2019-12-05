@@ -32,14 +32,6 @@ public class AbilityTimer : MonoBehaviour, IPointerClickHandler
         {
             CoolDown();
         }
-
-        if (Input.GetKeyDown("space"))
-        {
-            if (ability is TeleportAbility)
-            {
-                AbilityStart();
-            }
-        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
