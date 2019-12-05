@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Teleport
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: e31ef110a72933f4d83f846cd6c0f413, type: 3}
-  timer: 0
+  duration: 0
+  coolDown: 20
   teleportDistance: 30

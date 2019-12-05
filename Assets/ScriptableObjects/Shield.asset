@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bb70a39141c0995499b8dc3385dcf47d, type: 3}
-  timer: 5
+  duration: 5
+  coolDown: 20

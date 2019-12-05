@@ -506,6 +506,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Border
       objectReference: {fileID: 0}
+    - target: {fileID: 2138641240526122595, guid: 5b07e9d2b55e0a5439139b587cbf3057,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2138641240526122592, guid: 5b07e9d2b55e0a5439139b587cbf3057,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1420,6 +1425,21 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2129176430}
+    - target: {fileID: 387894788679781736, guid: 1c23b5d14554e2244b7f6ec8fe4bd8ae,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387894788679781736, guid: 1c23b5d14554e2244b7f6ec8fe4bd8ae,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387894788679781736, guid: 1c23b5d14554e2244b7f6ec8fe4bd8ae,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c23b5d14554e2244b7f6ec8fe4bd8ae, type: 3}
 --- !u!1 &3077357944510210121 stripped
@@ -1573,6 +1593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939758442507091057, guid: 6215dff0a82ae154eb0e46e8b4fcc397,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 288
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6215dff0a82ae154eb0e46e8b4fcc397, type: 3}

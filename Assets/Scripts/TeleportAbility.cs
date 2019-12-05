@@ -20,8 +20,12 @@ public class TeleportAbility : AbilityScript
     {
         position.x = playerMovement.getInputs().x*teleportDistance;
         position.z = playerMovement.getInputs().z*teleportDistance;
-        player.transform.position = player.transform.position + new Vector3(position.x, 0, position.z);
-        
+        position = player.transform.position + new Vector3(position.x, 0, position.z);
+        if (position.x > 60) position.x = 60;
+        if (position.x < -60) position.x = -60;
+        if (position.z > 35) position.z = 35;
+        if (position.z < -35) position.z = -35;
+        player.transform.position = position;
     }
 
     public override void AbilityEnd()
