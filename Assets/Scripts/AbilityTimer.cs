@@ -8,9 +8,8 @@ public class AbilityTimer : MonoBehaviour, IPointerClickHandler
 {
     public Image darkMask;
     private Image myButtonImage;
-    private float timerDuration;
-    private float timeLeft;
-    private bool pressed = false;
+    private float abilityDuration, coolDownDuration, nextTimeForAbility, timeLeft;
+    private bool pressed = false, coolDown = false;
 
     [SerializeField] private AbilityScript ability;
     [SerializeField] private GameObject player;
@@ -22,17 +21,32 @@ public class AbilityTimer : MonoBehaviour, IPointerClickHandler
         Initialize(ability, player);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        AbilityStart();
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (pressed == true)
         {
             Timer();
+        }
+        if(coolDown == true)
+        {
+            CoolDown();
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            if (ability is TeleportAbility)
+            {
+                AbilityStart();
+            }
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (nextTimeForAbility < Time.time)
+        {
+            AbilityStart();
         }
     }
 
@@ -41,25 +55,37 @@ public class AbilityTimer : MonoBehaviour, IPointerClickHandler
         ability = selectedAbility;
         myButtonImage = GetComponent<Image>();
         myButtonImage.sprite = ability.sprite;
-        timerDuration = ability.timer;
-        ability.Initialize(player);
+        abilityDuration = ability.duration;
+        nextTimeForAbility = Time.time;
+        coolDownDuration = ability.coolDown;
         darkMask.enabled = false;
+
+        ability.Initialize(player);
     }
 
     public void Timer()
     {
-        timeLeft -= Time.deltaTime;
-        float roundedTimeLeft = Mathf.Round(timeLeft);
-        darkMask.fillAmount = 1 - (timeLeft / timerDuration);
+        timeLeft = nextTimeForAbility - Time.time;
+        darkMask.fillAmount = 1 - (timeLeft / abilityDuration);
         if (timeLeft < 0)
         {
             AbilityEnd();
         }
     }
+    public void CoolDown()
+    {
+        timeLeft = nextTimeForAbility - Time.time;
+        darkMask.fillAmount = (timeLeft / coolDownDuration);
+        if (timeLeft < 0)
+        {
+            coolDown = false;
+            darkMask.enabled = false;
+        }
+    }
 
     public void AbilityStart()
     {
-        timeLeft = timerDuration;
+        nextTimeForAbility = abilityDuration + Time.time;
         darkMask.enabled = true;
         ability.AbilityStart();
         pressed = true;
@@ -67,9 +93,9 @@ public class AbilityTimer : MonoBehaviour, IPointerClickHandler
 
     public void AbilityEnd()
     {
+        nextTimeForAbility = Time.time + coolDownDuration;
         pressed = false;
-        darkMask.enabled = false;
-        myButtonImage.enabled = false;
+        coolDown = true;
         ability.AbilityEnd();
     }
 }
