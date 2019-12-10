@@ -10,6 +10,8 @@ public class AbilityTimer : MonoBehaviour, IPointerClickHandler
     private Image myButtonImage;
     private float abilityDuration, coolDownDuration, nextTimeForAbility, timeLeft;
     private bool pressed = false, coolDown = false;
+    private bool tutorialMessageWasNotDisplayed = true;
+    public UnityEngine.UI.Text tutorialMessage;
 
     [SerializeField] private AbilityScript ability;
     [SerializeField] private GameObject player;
@@ -36,6 +38,15 @@ public class AbilityTimer : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (GlobalData.gameMode == GlobalData.GameMode.Tutorial)
+        {
+            if (tutorialMessageWasNotDisplayed)
+            {
+                tutorialMessage.text = "Good Job!";
+                tutorialMessageWasNotDisplayed = false;
+            }
+
+        }
         if (nextTimeForAbility < Time.time)
         {
             AbilityStart();
