@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject[] Spawners;
-    public GameObject gameOverUI, pauseButton, optionsButton, pauseUI;
+    public GameObject gameOverUI, pauseButton, optionsButton, pauseUI, tutorial;
     public Round[] Rounds;
     public float TimeBetweenRounds;
     private SpawnScript[] _spawnScripts;
@@ -16,8 +16,16 @@ public class GameController : MonoBehaviour
     private float _roundStart = 0;
     private float _breakStart = 0;
     private bool _break = false;
+    public UnityEngine.UI.Text tutorialMessage;
     void Start()
     {
+        if (GlobalData.gameMode == GlobalData.GameMode.Tutorial)
+        {
+            tutorial.SetActive(true);
+            GlobalData.tutorialStage = GlobalData.TutorialStage.Movement;
+            tutorialMessage.text = GlobalData.tutorialMessage;
+            
+        }
         _spawnScripts = new SpawnScript[Spawners.Length];
         for (int i=0; i < Spawners.Length; i++)
         {
