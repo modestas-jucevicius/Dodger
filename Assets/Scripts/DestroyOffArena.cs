@@ -11,10 +11,8 @@ public class DestroyOffArena : MonoBehaviour
     {
         if (GlobalData.gameMode == GlobalData.GameMode.Tutorial)
         {
-            print("Pirmas ifas praejo");
             if (firstEnemyNotExitedArena)
             {
-                print("Antras ifas praejo");
                 GlobalData.tutorialStage = GlobalData.TutorialStage.Powers;
                 tutorialMessage.text = GlobalData.tutorialMessage;
                 firstEnemyNotExitedArena = false;
