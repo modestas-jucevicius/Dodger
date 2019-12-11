@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject[] Spawners;
-    public GameObject gameOverUI;
+    public GameObject gameOverUI, pauseButton, optionsButton, pauseUI, tutorial;
     public Round[] Rounds;
     public float TimeBetweenRounds;
     private SpawnScript[] _spawnScripts;
@@ -16,8 +16,16 @@ public class GameController : MonoBehaviour
     private float _roundStart = 0;
     private float _breakStart = 0;
     private bool _break = false;
+    public UnityEngine.UI.Text tutorialMessage;
     void Start()
     {
+        if (GlobalData.gameMode == GlobalData.GameMode.Tutorial)
+        {
+            tutorial.SetActive(true);
+            GlobalData.tutorialStage = GlobalData.TutorialStage.Movement;
+            tutorialMessage.text = GlobalData.tutorialMessage;
+            
+        }
         _spawnScripts = new SpawnScript[Spawners.Length];
         for (int i=0; i < Spawners.Length; i++)
         {
@@ -49,17 +57,60 @@ public class GameController : MonoBehaviour
                 _spawnScripts[Random.Range(0, _spawnScripts.Length - 1)].Spawn(Rounds[_currentRound].GetSpawnEnemy());
             }
         }
+        else if (_gameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
     }
 
     public void GameOver()
     {
+        Time.timeScale = 0;
+        optionsButton.SetActive(true);
+        pauseButton.SetActive(false);
         _gameOver = true;
         gameOverUI.SetActive(true);
     }
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Pause()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0; //Pause Game
+            return;
+        }
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1; //Resume Game
+        }
+    }
+
+    public void OptionsGoBack()
+    {
+        if (_gameOver)
+        {
+            gameOverUI.SetActive(true);
+        }
+        else
+        {
+            pauseUI.SetActive(true);
+        }
     }
 
     [System.Serializable]

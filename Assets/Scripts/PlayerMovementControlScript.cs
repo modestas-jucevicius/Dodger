@@ -10,7 +10,8 @@ public class PlayerMovementControlScript : MonoBehaviour
     private Animator _animator;
     private Vector3 _inputs = Vector3.zero;
     private Quaternion _lookDirection;
-
+    public UnityEngine.UI.Text tutorialMessage;
+    private bool tutorialMessageWasNotDisplayed = true;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -24,6 +25,16 @@ public class PlayerMovementControlScript : MonoBehaviour
         _inputs.z = Joystick.Vertical;
         if (_inputs != Vector3.zero)
         {
+            if (GlobalData.gameMode == GlobalData.GameMode.Tutorial)
+            {
+                if (tutorialMessageWasNotDisplayed)
+                {
+                    GlobalData.tutorialStage = GlobalData.TutorialStage.AvoidingEnemies;
+                    tutorialMessage.text = GlobalData.tutorialMessage;
+                    tutorialMessageWasNotDisplayed = false;
+                }
+              
+            }
             _animator.SetBool("Walking", true);
             _lookDirection = Quaternion.LookRotation(_inputs);
             transform.rotation = Quaternion.Slerp(transform.rotation, _lookDirection, Speed * Time.deltaTime);
